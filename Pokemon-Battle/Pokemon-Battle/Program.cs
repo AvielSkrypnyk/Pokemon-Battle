@@ -5,9 +5,6 @@
 //5. The charmander does its battle cry for ten times.
 //6. Repeat 4 and 5 until the player quits the game.
 
-
-using Pokemon_Battle;
-
 class Program
 {
     static void Main()
@@ -41,35 +38,22 @@ class Program
     }
 }
 
-class Pokemon
+
+class Trainer
 {
-    private string name { get; set; }
-    private string pokemonType { get; set; }
-    public string strength { get; set; }
-    public string weakness { get; set; }
+    public string name { get; set; }
 
-    public Pokemon(string name, string pokemonType)
-    {
-        this.name = name;
-        this.pokemonType = pokemonType;
-        (strength, weakness) = PokemonTypes.GetStrenghtAndWeakness(pokemonType);
-    }
+    // has 6 pokeballs
+    public List<Pokeball> pokeballs { get; set; }
 
-    public string getName()
-    {
-        return name;
-    }
+}
 
-    public void SetName(string name)
-    {
-        this.name = name;
-    }
+class Pokeball
+{
+    public string content { get; set; }
 
-    public void battleCry()
+    public void throwPokeball()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            Console.WriteLine(name);
-        }
+        
     }
 }
