@@ -1,6 +1,6 @@
 ﻿using Pokemon_Battle;
 
-class Pokemon
+abstract class Pokemon
 {
     private string name { get; set; }
     private string pokemonType { get; set; }
@@ -14,21 +14,7 @@ class Pokemon
         (strength, weakness) = PokemonTypes.GetStrenghtAndWeakness(pokemonType);
     }
 
-    public string getName()
-    {
-        return name;
-    }
+    public string getName() { return name; }
 
-    public void SetName(string name)
-    {
-        this.name = name;
-    }
-
-    public void battleCry()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            Console.WriteLine(name);
-        }
-    }
+    public abstract void battleCry();
 }

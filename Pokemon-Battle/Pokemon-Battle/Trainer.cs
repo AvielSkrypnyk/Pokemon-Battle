@@ -10,7 +10,13 @@
 
         for (int i = 0; i < 6; i++)
         {
-            AddPokeball(new Pokeball(new Pokemon($"Charmander-{i + 1}", "Fire")));
+            Belt.Add(new Pokeball((i % 3) switch
+            {
+                0 => new Charmander(),
+                1 => new Squirtle(),
+                2 => new Bulbasaur(),
+                _ => throw new InvalidOperationException("Invalid Pokemon selection.")
+            }));
         }
     }
 
