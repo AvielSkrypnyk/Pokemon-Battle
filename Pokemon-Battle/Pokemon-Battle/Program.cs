@@ -1,59 +1,51 @@
-﻿//1.The player start the game.
-//2. The player gives a name to a charmander.
-//3. The charmander does its battle cry for ten times.
-//4. The player can give a new name to the same charmander.
-//5. The charmander does its battle cry for ten times.
-//6. Repeat 4 and 5 until the player quits the game.
-
-class Program
+﻿class Program
 {
     static void Main()
     {
-        Console.WriteLine("Enter your pokemon name:");
-        string name = Console.ReadLine() ?? throw new NullReferenceException();
+        Console.WriteLine("Welcome to the Pokémon Battle Simulator!");
 
-        Pokemon charmender = new Pokemon(name, "Fire");
+        Console.Write("Enter the name of Trainer 1: ");
+        string trainer1Name = Console.ReadLine() ?? "Trainer 1";
+        Trainer trainer1 = new Trainer(trainer1Name);
 
-        bool playing = true;
-        while (playing)
+        Console.Write("Enter the name of Trainer 2: ");
+        string trainer2Name = Console.ReadLine() ?? "Trainer 2";
+        Trainer trainer2 = new Trainer(trainer2Name);
+
+        int turn = 0;
+        while (turn < 6)
         {
-            charmender.battleCry();
+            // Step 4 & 5:
+            Console.WriteLine($"\n{trainer1.Name} throws a Pokeball!");
+            trainer1.ThrowPokeball(turn);
 
-            Console.WriteLine("Do you want to rename Pokemon? (yes/no)");
-            string answer = Console.ReadLine() ?? throw new NullReferenceException();
+            // Step 6 & 7:
+            Console.WriteLine($"\n{trainer2.Name} throws a Pokeball!");
+            trainer2.ThrowPokeball(turn);
 
-            if (answer.ToLower() == "yes")
-            {
-                Console.WriteLine("Enter new name for you pokemon: ");
-                string newName = Console.ReadLine() ?? throw new NullReferenceException();
-                charmender.SetName(newName);
-            }
-            else if (answer.ToLower() == "no")
-            {
-                playing = false;
-            }
+            // Step 8:
+            Console.WriteLine($"\n{trainer1.Name} returns the Pokémon to its Pokeball.");
+            trainer1.ReturnPokemon(turn);
 
+            // Step 9:
+            Console.WriteLine($"\n{trainer2.Name} returns the Pokémon to its Pokeball.");
+            trainer2.ReturnPokemon(turn);
+
+            turn++;
         }
-        Console.WriteLine("END OF THE GAME");
-    }
-}
 
+        Console.WriteLine("\nAll Pokeballs have been used! The battle is over.");
+        Console.WriteLine("Would you like to restart the game? (yes/no)");
 
-class Trainer
-{
-    public string name { get; set; }
-
-    // has 6 pokeballs
-    public List<Pokeball> pokeballs { get; set; }
-
-}
-
-class Pokeball
-{
-    public string content { get; set; }
-
-    public void throwPokeball()
-    {
-        
+        string restartChoice = Console.ReadLine()?.ToLower() ?? "no";
+        if (restartChoice == "yes")
+        {
+            Console.Clear();
+            Main(); // Restart the game
+        }
+        else
+        {
+            Console.WriteLine("Thanks for playing!");
+        }
     }
 }
