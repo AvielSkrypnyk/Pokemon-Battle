@@ -4,7 +4,7 @@
     {
     }
 
-    public override void battleCry()
+    public override void BattleCry()
     {
         Console.WriteLine("Squirtle!");
     }

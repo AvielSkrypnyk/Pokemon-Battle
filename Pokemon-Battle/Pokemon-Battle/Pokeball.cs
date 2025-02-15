@@ -1,13 +1,7 @@
-﻿class Pokeball
+﻿class Pokeball(Pokemon pokemon)
 {
-    private Pokemon? pokemon; // Can be null (empty Pokeball)
-    private bool isOpen;
-
-    public Pokeball(Pokemon pokemon)
-    {
-        this.pokemon = pokemon;
-        this.isOpen = false;
-    }
+    public Pokemon pokemon = pokemon;
+    private bool _isOpen;
 
     public void ThrowPokeball()
     {
@@ -17,11 +11,11 @@
             return;
         }
 
-        if (!isOpen)
+        if (!_isOpen)
         {
-            Console.WriteLine($"The Pokeball opens, and {pokemon.getName()} comes out!");
-            pokemon.battleCry();
-            isOpen = true;
+            Console.WriteLine($"The Pokeball opens, and {pokemon.Name} comes out!");
+            pokemon.BattleCry();
+            _isOpen = true;
         }
         else
         {
@@ -37,10 +31,10 @@
             return;
         }
 
-        if (isOpen)
+        if (_isOpen)
         {
-            Console.WriteLine($"{pokemon.getName()} returns to the Pokeball.");
-            isOpen = false;
+            Console.WriteLine($"{pokemon.Name} returns to the Pokeball.");
+            _isOpen = false;
         }
         else
         {

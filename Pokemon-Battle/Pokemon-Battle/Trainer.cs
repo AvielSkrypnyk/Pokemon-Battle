@@ -29,6 +29,7 @@
         Belt.Add(pokeball);
     }
 
+
     public void ThrowPokeball(int index)
     {
         if (index < 0 || index >= Belt.Count)
@@ -49,5 +50,15 @@
         }
 
         Belt[index].ReturnPokemon();
+    }
+    public Pokeball GetRandomPokeballl()
+    {
+        var validPokeballs = Belt.Where(x => !x.pokemon.Fainted);
+        return validPokeballs.ElementAt(Random.Shared.Next(validPokeballs.Count()));
+    }
+
+    public bool HasAvailablePokemon()
+    {
+        return Belt.Any(x => !x.pokemon.Fainted);
     }
 }

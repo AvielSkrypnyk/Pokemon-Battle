@@ -2,19 +2,17 @@
 
 abstract class Pokemon
 {
-    private string name { get; set; }
-    private string pokemonType { get; set; }
-    public string strength { get; set; }
-    public string weakness { get; set; }
-
+    public string Name { get; init;  }
+    private string PokemonType { get; init; }
+    public string Strength { get; init; }
+    public string Weakness { get; init; }
+    public bool Fainted { get; set; }
     public Pokemon(string name, string pokemonType)
     {
-        this.name = name;
-        this.pokemonType = pokemonType;
-        (strength, weakness) = PokemonTypes.GetStrenghtAndWeakness(pokemonType);
+        this.Name = name;
+        this.PokemonType = pokemonType;
+        (Strength, Weakness) = PokemonTypes.GetStrenghtAndWeakness(pokemonType);
     }
 
-    public string getName() { return name; }
-
-    public abstract void battleCry();
+    public abstract void BattleCry();
 }
