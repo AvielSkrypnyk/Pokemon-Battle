@@ -2,20 +2,15 @@
 {
     internal class PokemonTypes
     {
-        public static (string strength, string weakness) GetStrenghtAndWeakness(string pokemonType)
+        public static (Element strength, Element weakness) GetStrenghtAndWeakness(Element element)
         {
-            switch (pokemonType)
+            return element switch
             {
-                case "Fire":
-                    return ("Fire", "Water");
-                case "Water":
-                    return ("Water", "Grass");
-                case "Grass":
-                    return ("Grass", "Fire");
-                default:
-                    Console.WriteLine("Invalid pokemon type");
-                    return ("Unknown", "Unknown");
-            }
+                Element.Fire => (Element.Fire, Element.Water),
+                Element.Water => (Element.Water, Element.Grass),
+                Element.Grass => (Element.Grass, Element.Fire),
+                _ => throw new ArgumentException("Invalid element"),
+            };
         }
     }
 }

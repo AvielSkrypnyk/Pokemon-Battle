@@ -1,6 +1,8 @@
-﻿class Bulbasaur : Pokemon
+﻿using Pokemon_Battle;
+
+class Bulbasaur : Pokemon
 {
-    public Bulbasaur() : base(nameof(Bulbasaur), "Grass")
+    public Bulbasaur() : base(nameof(Bulbasaur), Element.Grass)
     {
     }
 

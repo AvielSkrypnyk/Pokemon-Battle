@@ -1,6 +1,6 @@
-﻿class Pokeball(Pokemon pokemon)
+﻿sealed class Pokeball(Pokemon pokemon)
 {
-    public Pokemon pokemon = pokemon;
+    public readonly Pokemon pokemon = pokemon;
     private bool _isOpen;
 
     public void ThrowPokeball()

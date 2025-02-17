@@ -1,6 +1,8 @@
-﻿class Squirtle : Pokemon
+﻿using Pokemon_Battle;
+
+class Squirtle : Pokemon
 {
-    public Squirtle() : base("Squirtle", "Water")
+    public Squirtle() : base(nameof(Squirtle), Element.Water)
     {
     }
 

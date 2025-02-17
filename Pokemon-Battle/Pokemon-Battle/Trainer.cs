@@ -2,13 +2,13 @@
 {
     public string Name { get; set; }
     public List<Pokeball> Belt { get; set; }
-
+    private const int MAX_BELT_CAPACITY = 6;
     public Trainer(string name)
     {
         Name = name;
         Belt = new List<Pokeball>();
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < MAX_BELT_CAPACITY; i++)
         {
             Belt.Add(new Pokeball((i % 3) switch
             {
@@ -22,7 +22,7 @@
 
     public void AddPokeball(Pokeball pokeball)
     {
-        if (Belt.Count >= 6)
+        if (Belt.Count >= MAX_BELT_CAPACITY)
         {
             throw new InvalidOperationException("A trainer can only have six Pokeballs.");
         }

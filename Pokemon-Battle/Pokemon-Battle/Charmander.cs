@@ -1,6 +1,8 @@
-﻿class Charmander : Pokemon
+﻿using Pokemon_Battle;
+
+class Charmander : Pokemon
 {
-    public Charmander() : base("Charmander", "Fire")
+    public Charmander() : base(nameof(Charmander), Element.Fire)
     {
     }
 
