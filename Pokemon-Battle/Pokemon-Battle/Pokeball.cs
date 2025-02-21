@@ -1,9 +1,11 @@
-﻿sealed class Pokeball(Pokemon pokemon)
+﻿namespace Pokemon_Battle;
+
+sealed class Pokeball(Pokemon pokemon)
 {
     public readonly Pokemon pokemon = pokemon;
     private bool _isOpen;
 
-    public void ThrowPokeball()
+    public void OpenPokeball()
     {
         if (pokemon == null)
         {
@@ -23,7 +25,7 @@
         }
     }
 
-    public void ReturnPokemon()
+    public void ClosePokeball()
     {
         if (pokemon == null)
         {

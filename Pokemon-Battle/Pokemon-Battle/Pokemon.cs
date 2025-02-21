@@ -1,8 +1,8 @@
-﻿using Pokemon_Battle;
+﻿namespace Pokemon_Battle;
 
 abstract class Pokemon
 {
-    public string Name { get; init;  }
+    public string Name { get; }
     private Element PokemonType { get; init; }
     public Element Strength { get; init; }
     public Element Weakness { get; init; }

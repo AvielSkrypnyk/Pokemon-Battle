@@ -1,9 +1,10 @@
-﻿class Arena
+﻿namespace Pokemon_Battle;
+internal static class Arena
 {
-    private static int _totalRounds = 0;
-    private static int _totalBattles = 0;
+    private static int _totalRounds;
+    private static int _totalBattles;
 
-    public void StartBattle(Trainer trainer1, Trainer trainer2)
+    public static void StartBattle(Trainer trainer1, Trainer trainer2)
     {
         new Battle(trainer1, trainer2).Start();
         _totalBattles++;
@@ -15,7 +16,7 @@
         _totalRounds++;
     }
 
-    public static void DisplayScore()
+    private static void DisplayScore()
     {
         Console.WriteLine($"Total Battles: {_totalBattles}, Total Rounds: {_totalRounds}");
     }

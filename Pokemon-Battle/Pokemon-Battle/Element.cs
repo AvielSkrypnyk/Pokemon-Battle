@@ -1,9 +1,7 @@
-﻿namespace Pokemon_Battle
+﻿namespace Pokemon_Battle;
+internal enum Element
 {
-    enum Element
-    {
-        Fire,
-        Water,
-        Grass
-    }
+    Fire,
+    Water,
+    Grass
 }

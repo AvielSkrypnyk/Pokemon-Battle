@@ -1,16 +1,14 @@
-﻿namespace Pokemon_Battle
+﻿namespace Pokemon_Battle;
+internal static class PokemonTypes
 {
-    internal class PokemonTypes
+    public static (Element strength, Element weakness) GetStrenghtAndWeakness(Element element)
     {
-        public static (Element strength, Element weakness) GetStrenghtAndWeakness(Element element)
+        return element switch
         {
-            return element switch
-            {
-                Element.Fire => (Element.Fire, Element.Water),
-                Element.Water => (Element.Water, Element.Grass),
-                Element.Grass => (Element.Grass, Element.Fire),
-                _ => throw new ArgumentException("Invalid element"),
-            };
-        }
+            Element.Fire => (Element.Fire, Element.Water),
+            Element.Water => (Element.Water, Element.Grass),
+            Element.Grass => (Element.Grass, Element.Fire),
+            _ => throw new ArgumentException("Invalid element"),
+        };
     }
 }

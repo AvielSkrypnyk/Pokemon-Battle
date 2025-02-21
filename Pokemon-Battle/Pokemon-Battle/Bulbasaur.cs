@@ -1,11 +1,6 @@
-﻿using Pokemon_Battle;
-
-class Bulbasaur : Pokemon
+﻿namespace Pokemon_Battle;
+internal class Bulbasaur() : Pokemon(nameof(Bulbasaur), Element.Grass)
 {
-    public Bulbasaur() : base(nameof(Bulbasaur), Element.Grass)
-    {
-    }
-
     public override void BattleCry()
     {
         Console.WriteLine("Bulbasaur!");

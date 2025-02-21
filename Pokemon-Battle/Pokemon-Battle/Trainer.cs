@@ -1,14 +1,16 @@
-﻿class Trainer
+﻿namespace Pokemon_Battle;
+
+class Trainer
 {
     public string Name { get; set; }
     public List<Pokeball> Belt { get; set; }
-    private const int MAX_BELT_CAPACITY = 6;
+    private const int MaxBeltCapacity = 6;
     public Trainer(string name)
     {
         Name = name;
         Belt = new List<Pokeball>();
 
-        for (int i = 0; i < MAX_BELT_CAPACITY; i++)
+        for (int i = 0; i < MaxBeltCapacity; i++)
         {
             Belt.Add(new Pokeball((i % 3) switch
             {
@@ -22,7 +24,7 @@
 
     public void AddPokeball(Pokeball pokeball)
     {
-        if (Belt.Count >= MAX_BELT_CAPACITY)
+        if (Belt.Count >= MaxBeltCapacity)
         {
             throw new InvalidOperationException("A trainer can only have six Pokeballs.");
         }
@@ -38,7 +40,7 @@
             return;
         }
 
-        Belt[index].ThrowPokeball();
+        Belt[index].OpenPokeball();
     }
 
     public void ReturnPokemon(int index)
@@ -49,7 +51,7 @@
             return;
         }
 
-        Belt[index].ReturnPokemon();
+        Belt[index].ClosePokeball();
     }
     public Pokeball GetRandomPokeballl()
     {
